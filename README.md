@@ -160,4 +160,26 @@ cysa-lab/
 
 ---
 
+## 🔧 Tool Stack (100% Free)
+
+| Tool | Purpose | Cost |
+|---|---|---|
+| **VirtualBox / VMware Workstation Player** | Hypervisor | Free |
+| **Ubuntu Server 22.04 LTS** | Base OS for servers | Free |
+| **Kali Linux** | Attack simulation | Free |
+| **Metasploitable 2/3** | Intentionally vulnerable target | Free |
+| **DVWA** | Vulnerable web app | Free |
+| **Wazuh** | SIEM + EDR + log management | Free (open source) |
+| **Suricata** | Network IDS/IPS | Free (open source) |
+| **Zeek** | Network analysis framework | Free (open source) |
+| **TheHive** | Security incident case management | Free (community) |
+| **Cortex** | Alert enrichment + automation | Free (open source) |
+| **OpenVAS / Greenbone** | Vulnerability scanner | Free (community) |
+| **Velociraptor** | Digital forensics + IR | Free (open source) |
+| **Dependency-Track** | SCA / SBOM analysis | Free (open source) |
+| **MISP** | Threat intelligence platform | Free (open source) |
+| **Sigma** | Portable detection rules | Free (open source) |
+
+---
+
 
