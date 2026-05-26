@@ -195,13 +195,13 @@ cysa-lab/
 | Disk | 100 GB free | 200 GB SSD |
 | OS | Windows 10/11 or Linux | Linux host preferred |
 
-> 💡 **No powerful machine?** Use [Oracle Cloud Free Tier](https://www.oracle.com/cloud/free/) — it offers always-free VMs with enough resources to run this lab.
+> 💡 **No powerful machine?** Use [Oracle Cloud Free Tier](https://www.oracle.com/cloud/free/) - it offers always-free VMs with enough resources to run this lab.
 
 ### Step 1 - Clone the Repo
 
 ```bash
 git clone https://github.com/x-lga/live-security-operations-lab.git
-cd cysa-lab
+cd live-security-operations-lab
 ```
 
 ### Step 2 - Set Up the Network
@@ -210,7 +210,7 @@ Follow [`lab-setup/01-network-design.md`](lab-setup/01-network-design.md) to cre
 
 ### Step 3 - Deploy the SIEM
 
-Follow [`lab-setup/02-wazuh-setup.md`](lab-setup/02-wazuh-setup.md) — this is your lab's brain.
+Follow [`lab-setup/02-wazuh-setup.md`](lab-setup/02-wazuh-setup.md) - this is your lab's brain.
 
 ### Step 4 - Deploy Detection Tools
 
