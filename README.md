@@ -256,5 +256,25 @@ See [`docs/mitre-attack-mapping.md`](docs/mitre-attack-mapping.md) for full mapp
 
 ---
 
+## 📖 How to Use This Repo
+
+### If you're studying for CySA+
+1. Read the domain mapping doc first
+2. Set up the lab following the setup guides in order
+3. For each chapter topic, find the matching lab component and run it
+4. Use the playbooks as study material - each step maps to exam objectives
+
+### If you're a junior SOC analyst
+1. Grab the playbooks folder - adapt them to your organization
+2. Grab the detection rules - import them into your SIEM
+3. Use the threat hunting hypotheses as your starting point each shift
+
+### If you're building a homelab
+1. Follow the setup guides in `/lab-setup/` top to bottom
+2. Everything is documented with exact commands - nothing is assumed
+
+---
+
+
 
 
