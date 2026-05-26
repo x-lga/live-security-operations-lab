@@ -226,4 +226,16 @@ Open your Wazuh dashboard. Run an nmap scan from Kali. Watch the alerts populate
 
 ---
 
+## 🎓 CySA+ Domain Coverage
+
+| CySA+ Domain | Coverage in This Lab |
+|---|---|
+| **Security Operations (33%)** | Wazuh SIEM, Suricata IDS, IOA/IOC detection, alert triage |
+| **Vulnerability Management (30%)** | OpenVAS scanning, CVSS scoring, remediation workflows |
+| **Incident Response (20%)** | TheHive case management, IR playbooks, Velociraptor DFIR |
+| **Reporting & Communication (17%)** | IR report templates, dashboards, stakeholder comms |
+
+---
+
+
 
