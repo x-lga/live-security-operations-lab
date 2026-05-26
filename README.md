@@ -26,4 +26,39 @@ Built entirely with **free and open-source tools**. Runs on modest hardware or a
 
 ---
 
+## 🗺️ Project Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     ATTACK SIMULATION LAYER                     │
+│          Kali Linux VM  ──►  Metasploitable / DVWA              │
+└───────────────────────────────┬─────────────────────────────────┘
+                                │ (malicious traffic)
+┌───────────────────────────────▼─────────────────────────────────┐
+│                      DETECTION LAYER                            │
+│   Suricata (IDS/IPS)  +  Zeek (network analysis)                │
+│   Wazuh Agent (endpoint telemetry on all VMs)                   │
+└───────────────────────────────┬─────────────────────────────────┘
+                                │ (logs + alerts)
+┌───────────────────────────────▼─────────────────────────────────┐
+│                   SIEM / ANALYSIS LAYER                         │
+│        Wazuh Manager  +  OpenSearch / Kibana Dashboard          │
+│        TheHive (case management) + Cortex (auto-enrichment)     │
+└───────────────────────────────┬─────────────────────────────────┘
+                                │ (enriched incidents)
+┌───────────────────────────────▼─────────────────────────────────┐
+│               VULNERABILITY MANAGEMENT LAYER                    │
+│         OpenVAS / Greenbone  +  CVSS scoring scripts            │
+│         Dependency-Track (SCA/SBOM)                             │
+└───────────────────────────────┬─────────────────────────────────┘
+                                │ (findings)
+┌───────────────────────────────▼─────────────────────────────────┐
+│              INCIDENT RESPONSE & REPORTING LAYER                │
+│     Playbooks (this repo)  +  Velociraptor (DFIR)               │
+│     Automated IR reports generated per incident                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 
