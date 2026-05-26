@@ -237,5 +237,24 @@ Open your Wazuh dashboard. Run an nmap scan from Kali. Watch the alerts populate
 
 ---
 
+## 🧠 MITRE ATT&CK Coverage
+
+This lab detects and simulates techniques across:
+
+- **Reconnaissance** - nmap, Nikto web scanning
+- **Initial Access** - Metasploit exploits against Metasploitable
+- **Execution** - Remote code execution via web vulnerabilities
+- **Persistence** - Cron job backdoors, SSH key injection
+- **Privilege Escalation** - SUID abuse, sudo misconfigurations
+- **Defense Evasion** - Log clearing, obfuscated commands
+- **Credential Access** - Hydra brute force, credential dumping
+- **Lateral Movement** - Pass-the-hash simulation
+- **Collection & Exfiltration** - Staged file transfers, DNS tunneling simulation
+- **Command & Control** - Meterpreter C2 sessions
+
+See [`docs/mitre-attack-mapping.md`](docs/mitre-attack-mapping.md) for full mapping.
+
+---
+
 
 
