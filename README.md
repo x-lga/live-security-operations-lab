@@ -14,3 +14,16 @@ Built entirely with **free and open-source tools**. Runs on modest hardware or a
 
 ---
 
+## 🎯 Who This Is For
+
+| Person | How This Helps |
+|---|---|
+| **CySA+ candidates** | See every exam domain working in a live environment |
+| **Junior SOC analysts** | Steal the playbooks, detection rules, and runbooks for real work |
+| **Homelab builders** | Fork and spin up a complete detection stack in hours |
+| **Hiring managers** | A working lab that demonstrates operational security thinking |
+| **Blue teamers** | Wazuh + Suricata + Zeek configs you can adapt directly |
+
+---
+
+
