@@ -275,6 +275,16 @@ See [`docs/mitre-attack-mapping.md`](docs/mitre-attack-mapping.md) for full mapp
 
 ---
 
+## 🤝 Contributing
+
+Pull requests are welcome. If you:
+- Find a broken command - open an issue
+- Have a better detection rule - submit a PR
+- Want to add a new attack scenario - follow the existing playbook format
+
+---
+
+
 
 
 
