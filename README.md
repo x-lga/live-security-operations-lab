@@ -284,6 +284,24 @@ Pull requests are welcome. If you:
 
 ---
 
+## ⚠️ Legal & Ethical Notice
+
+> **This lab is for educational purposes only.**
+> All attack simulations are performed against intentionally vulnerable machines **in an isolated network you control.**
+> Never use these techniques against systems you do not own or have explicit written permission to test.
+> The author assumes no responsibility for misuse.
+
+---
+
+## 📜 License
+
+MIT License - use it, fork it, build on it.
+
+---
+
+*Built with purpose. Every file in this repo exists because someone needed to learn it the hard way first.*
+
+
 
 
 
