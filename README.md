@@ -182,4 +182,48 @@ cysa-lab/
 
 ---
 
+## 🚀 Quick Start
+
+> Full setup guides are in `/lab-setup/`. This is the 5-minute orientation.
+
+### Minimum Hardware Requirements
+
+| Resource | Minimum | Recommended |
+|---|---|---|
+| RAM | 16 GB | 32 GB |
+| CPU | 4 cores | 8 cores |
+| Disk | 100 GB free | 200 GB SSD |
+| OS | Windows 10/11 or Linux | Linux host preferred |
+
+> 💡 **No powerful machine?** Use [Oracle Cloud Free Tier](https://www.oracle.com/cloud/free/) — it offers always-free VMs with enough resources to run this lab.
+
+### Step 1 - Clone the Repo
+
+```bash
+git clone https://github.com/x-lga/live-security-operations-lab.git
+cd cysa-lab
+```
+
+### Step 2 - Set Up the Network
+
+Follow [`lab-setup/01-network-design.md`](lab-setup/01-network-design.md) to create your isolated virtual network.
+
+### Step 3 - Deploy the SIEM
+
+Follow [`lab-setup/02-wazuh-setup.md`](lab-setup/02-wazuh-setup.md) — this is your lab's brain.
+
+### Step 4 - Deploy Detection Tools
+
+Follow guides 03 and 04 for Suricata and Zeek.
+
+### Step 5 - Deploy Targets and Attack
+
+Follow [`lab-setup/08-attack-simulation.md`](lab-setup/08-attack-simulation.md) to spin up Metasploitable and run your first attack.
+
+### Step 6 - Watch Alerts Fire
+
+Open your Wazuh dashboard. Run an nmap scan from Kali. Watch the alerts populate.
+
+---
+
 
