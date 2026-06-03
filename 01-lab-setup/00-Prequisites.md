@@ -47,3 +47,9 @@ Download these before starting. Trying to download large ISOs mid-setup is frust
 - Download: https://www.virtualbox.org/wiki/Downloads
 - Also download the **VirtualBox Extension Pack** (same page) - needed for USB passthrough and improved networking
 - Version: 7.x or latest stable
+
+**Option B: VMware Workstation Player (free for personal use)**
+- Download: https://www.vmware.com/products/workstation-player.html
+- Version: 17.x or latest
+- Note: VMware Player has better performance than VirtualBox but fewer features
+
