@@ -104,4 +104,25 @@ Keep your API keys in a password manager. You'll plug them into Cortex analyzers
 
 ---
 
+## 🛠️ Host Machine Preparation
+
+### On Linux (Ubuntu/Debian Host)
+
+```bash
+# Update your system first — always
+sudo apt update && sudo apt upgrade -y
+
+# Install VirtualBox
+sudo apt install virtualbox virtualbox-ext-pack -y
+
+# Add your user to the vboxusers group
+sudo usermod -aG vboxusers $USER
+
+# Install useful utilities
+sudo apt install curl wget git htop net-tools nmap -y
+
+# Log out and back in for group changes to take effect
+```
+
+
 
