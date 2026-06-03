@@ -134,4 +134,19 @@ sudo apt install curl wget git htop net-tools nmap -y
 5. Install Windows Terminal: https://aka.ms/terminal (makes your life easier)
 
 
+### BIOS/UEFI Settings (Critical)
+
+Before VMs will run, you must enable hardware virtualization in your BIOS:
+
+- **Intel processors**: Enable **VT-x** (Intel Virtualization Technology)
+- **AMD processors**: Enable **AMD-V** (AMD Virtualization)
+- Also enable **VT-d** / **AMD-Vi** if available (IOMMU for better device passthrough)
+
+How to access BIOS: Press F2, F10, F12, or Delete during boot (varies by manufacturer).
+
+> If you see an error like `VT-x is disabled in the BIOS` when starting a VM, this is your problem.
+
+---
+
+
 
