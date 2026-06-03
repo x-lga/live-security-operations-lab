@@ -125,4 +125,13 @@ sudo apt install curl wget git htop net-tools nmap -y
 ```
 
 
+### On Windows Host
+
+1. Install VirtualBox using the downloaded installer (run as Administrator)
+2. Install the Extension Pack (double-click the `.vbox-extpack` file after VirtualBox is installed)
+3. Enable Hyper-V compatibility if prompted (VirtualBox 7.x handles this better than earlier versions)
+4. Install Git for Windows: https://gitforwindows.org/
+5. Install Windows Terminal: https://aka.ms/terminal (makes your life easier)
+
+
 
