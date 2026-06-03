@@ -199,6 +199,23 @@ Plan your VM memory allocation before you start creating machines:
 
 ---
 
+## ✅ Prerequisites Checklist
+
+Before moving to `01-network-design.md`, confirm all of these:
+
+- [ ] Host machine has hardware virtualization enabled in BIOS
+- [ ] Hypervisor (VirtualBox or VMware) installed and opens without errors
+- [ ] Ubuntu Server 22.04 ISO downloaded and SHA256 verified
+- [ ] Kali Linux ISO downloaded
+- [ ] Metasploitable 2 ZIP downloaded and extracted
+- [ ] GitHub account created and Git installed on host
+- [ ] VirusTotal and AbuseIPDB API keys obtained
+- [ ] Folder structure `~/cysa-lab/{isos,snapshots,configs,logs}` created
+- [ ] You have at least 100 GB free disk space confirmed
+- [ ] You've read the VM allocation plan and know which VMs you'll run simultaneously
+
+---
+
 
 
 
