@@ -235,6 +235,8 @@ Take VirtualBox snapshots of clean VM states so you can suspend one group and re
 
 ---
 
+*Next: [`01-network-design.md`](01-network-design.md) - building your isolated virtual network.*
+
 
 
 
