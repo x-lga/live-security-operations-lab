@@ -148,5 +148,22 @@ How to access BIOS: Press F2, F10, F12, or Delete during boot (varies by manufac
 
 ---
 
+## 📁 Folder Structure Convention
+
+Create this folder structure on your host before you start. Consistency here prevents confusion later:
+
+```bash
+mkdir -p ~/cysa-lab/{isos,snapshots,configs,logs}
+```
+
+| Folder | Purpose |
+|---|---|
+| `~/cysa-lab/isos/` | Store all downloaded ISO and OVA files |
+| `~/cysa-lab/snapshots/` | VirtualBox snapshot exports (backup clean states) |
+| `~/cysa-lab/configs/` | Copies of your VM config files |
+| `~/cysa-lab/logs/` | Exported logs for offline analysis |
+
+---
+
 
 
