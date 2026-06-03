@@ -80,3 +80,12 @@ Download these ISOs/OVAs and store them in a dedicated folder:
 | **Kali Linux** | https://www.kali.org/get-kali/#kali-installer-images | Attack simulation |
 | **Metasploitable 2** | https://sourceforge.net/projects/metasploitable/ | Vulnerable target (download the `.zip`, extract the `.vmdk`) |
 
+
+> 💡 **Verify your downloads.** Always check the SHA256 hash against what the download page provides.
+> ```bash
+> sha256sum ubuntu-22.04.x-live-server-amd64.iso
+> ```
+
+---
+
+
