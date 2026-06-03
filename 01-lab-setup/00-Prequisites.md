@@ -15,3 +15,8 @@
 | **Disk** | 100 GB free | 200 GB SSD | HDD works but Wazuh indexing on spinning disk is painful |
 | **Network** | 1 NIC | 2 NICs | A second NIC for dedicated monitoring is optional but clean |
 | **OS** | Windows 10/11 | Ubuntu 22.04 LTS host | Linux host = fewer hypervisor quirks |
+
+> **⚠️ RAM is the hard constraint.** If you only have 16 GB, you will need to be strategic about which VMs are running simultaneously. The "Minimal RAM" section at the bottom of this document covers that.
+
+---
+
