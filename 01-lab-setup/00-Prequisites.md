@@ -62,3 +62,21 @@ sudo apt install qemu-kvm libvirt-daemon-system virt-manager bridge-utils
 
 ---
 
+### Virtual Machine Images
+
+Download these ISOs/OVAs and store them in a dedicated folder:
+
+```
+~/lab-isos/
+├── ubuntu-22.04.x-live-server-amd64.iso    (~1.4 GB)
+├── kali-linux-2024.x-installer-amd64.iso   (~3.5 GB)
+├── metasploitable-linux-2.0.0.zip          (~850 MB)
+└── (DVWA runs inside Ubuntu - no separate download)
+```
+
+| Image | Download URL | Used For |
+|---|---|---|
+| **Ubuntu Server 22.04 LTS** | https://ubuntu.com/download/server | Wazuh Manager, Suricata sensor, TheHive, OpenVAS nodes |
+| **Kali Linux** | https://www.kali.org/get-kali/#kali-installer-images | Attack simulation |
+| **Metasploitable 2** | https://sourceforge.net/projects/metasploitable/ | Vulnerable target (download the `.zip`, extract the `.vmdk`) |
+
