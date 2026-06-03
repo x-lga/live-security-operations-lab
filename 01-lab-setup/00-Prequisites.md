@@ -226,6 +226,16 @@ If you only have 16 GB, use these reduced allocations and run VMs in groups:
 - Kali Linux: 2 GB
 - Metasploitable: 512 MB
 
+**Group B - Case Management** (swap in when investigating, ~8 GB):
+- TheHive + Cortex: 3 GB
+- Wazuh Manager: 4 GB
+- Kali: 2 GB
+
+Take VirtualBox snapshots of clean VM states so you can suspend one group and resume another quickly.
+
+---
+
+
 
 
 
