@@ -165,5 +165,18 @@ mkdir -p ~/cysa-lab/{isos,snapshots,configs,logs}
 
 ---
 
+## 🌐 Network Planning (Brief Intro)
+
+You'll create **two virtual networks** in VirtualBox:
+
+| Network | Type | Purpose |
+|---|---|---|
+| `SOC-Management` | Host-Only (192.168.56.0/24) | Admin access to all VMs from your host |
+| `SOC-Lab-Net` | Internal Network | Isolated traffic between VMs; no internet |
+
+Full details are in [`01-network-design.md`](01-network-design.md). Just know now that your VMs will **not** have internet access during attack simulations — this is intentional and important.
+
+---
+
 
 
