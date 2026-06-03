@@ -29,3 +29,10 @@ If your physical machine can't handle this, use a cloud provider. All of these h
 | **Oracle Cloud Free Tier** | 4 OCPUs + 24 GB RAM (always free) | Best option - generous specs |
 | **Google Cloud** | $300 free credit (90 days) | Good for quick exploration |
 | **AWS Free Tier** | t2.micro / t3.micro (1 year) | Too small for full stack; use for agent-only nodes |
+
+
+**Oracle Cloud is the recommended cloud option.** The always-free ARM instance (4 OCPU, 24 GB RAM) is enough to run Wazuh Manager + Suricata + one target VM.
+
+Sign up: https://www.oracle.com/cloud/free/
+
+---
