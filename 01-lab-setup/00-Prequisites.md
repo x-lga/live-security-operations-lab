@@ -53,3 +53,12 @@ Download these before starting. Trying to download large ISOs mid-setup is frust
 - Version: 17.x or latest
 - Note: VMware Player has better performance than VirtualBox but fewer features
 
+**Option C: KVM/QEMU (Linux hosts only, best performance)**
+```bash
+sudo apt install qemu-kvm libvirt-daemon-system virt-manager bridge-utils
+```
+- Use if your host is Linux and you want native performance
+- `virt-manager` gives you a GUI
+
+---
+
