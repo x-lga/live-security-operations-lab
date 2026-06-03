@@ -20,3 +20,12 @@
 
 ---
 
+### No Powerful Machine? Cloud Options
+
+If your physical machine can't handle this, use a cloud provider. All of these have free tiers sufficient for the lab:
+
+| Provider | Free Offering | Notes |
+|---|---|---|
+| **Oracle Cloud Free Tier** | 4 OCPUs + 24 GB RAM (always free) | Best option - generous specs |
+| **Google Cloud** | $300 free credit (90 days) | Good for quick exploration |
+| **AWS Free Tier** | t2.micro / t3.micro (1 year) | Too small for full stack; use for agent-only nodes |
