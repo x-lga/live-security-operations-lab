@@ -195,5 +195,10 @@ Plan your VM memory allocation before you start creating machines:
 | **TOTAL** | **~21.5 GB** | **13 cores** | **~203 GB** | |
 
 
+> **16 GB RAM strategy**: Don't run all VMs simultaneously. Keep Wazuh Manager + one target + Kali running. Snapshot everything after setup so you can restore clean states quickly.
+
+---
+
+
 
 
