@@ -36,3 +36,7 @@ If your physical machine can't handle this, use a cloud provider. All of these h
 Sign up: https://www.oracle.com/cloud/free/
 
 ---
+
+## 💿 Software Downloads
+
+Download these before starting. Trying to download large ISOs mid-setup is frustrating.
