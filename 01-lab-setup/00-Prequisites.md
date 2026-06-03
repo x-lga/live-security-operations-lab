@@ -216,6 +216,16 @@ Before moving to `01-network-design.md`, confirm all of these:
 
 ---
 
+## ⚡ Minimal RAM Configuration (16 GB Hosts)
+
+If you only have 16 GB, use these reduced allocations and run VMs in groups:
+
+**Group A - Core Detection Stack** (run these together, ~12 GB):
+- Wazuh Manager: 4 GB
+- Suricata/Zeek Sensor: 1.5 GB
+- Kali Linux: 2 GB
+- Metasploitable: 512 MB
+
 
 
 
