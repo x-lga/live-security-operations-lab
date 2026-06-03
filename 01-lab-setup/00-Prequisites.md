@@ -88,4 +88,20 @@ Download these ISOs/OVAs and store them in a dedicated folder:
 
 ---
 
+## 🔐 Accounts to Create (All Free)
+
+Create these accounts now - some require email verification that takes time:
+
+| Service | URL | Why You Need It |
+|---|---|---|
+| **GitHub** | https://github.com | Clone this repo, version-control your configs |
+| **VirusTotal** | https://www.virustotal.com | IOC enrichment in TheHive/Cortex analyzers |
+| **AbuseIPDB** | https://www.abuseipdb.com | IP reputation lookups (free API key) |
+| **Shodan** | https://www.shodan.io | Optional: asset intelligence enrichment |
+| **AlienVault OTX** | https://otx.alienvault.com | Threat intelligence feeds for MISP |
+
+Keep your API keys in a password manager. You'll plug them into Cortex analyzers in a later step.
+
+---
+
 
