@@ -40,3 +40,10 @@ Sign up: https://www.oracle.com/cloud/free/
 ## 💿 Software Downloads
 
 Download these before starting. Trying to download large ISOs mid-setup is frustrating.
+
+### Hypervisor (pick one)
+
+**Option A: VirtualBox (recommended for beginners)**
+- Download: https://www.virtualbox.org/wiki/Downloads
+- Also download the **VirtualBox Extension Pack** (same page) - needed for USB passthrough and improved networking
+- Version: 7.x or latest stable
