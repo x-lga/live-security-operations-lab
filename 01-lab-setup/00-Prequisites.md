@@ -178,5 +178,22 @@ Full details are in [`01-network-design.md`](01-network-design.md). Just know no
 
 ---
 
+## 🗃️ VM Allocation Plan
+
+Plan your VM memory allocation before you start creating machines:
+
+| VM | RAM | CPU | Disk | Purpose |
+|---|---|---|---|---|
+| **Wazuh Manager** | 6 GB | 2 cores | 50 GB | SIEM brain + indexer |
+| **Suricata/Zeek Sensor** | 2 GB | 2 cores | 20 GB | Network monitoring |
+| **TheHive + Cortex** | 4 GB | 2 cores | 30 GB | Case management |
+| **OpenVAS** | 4 GB | 2 cores | 30 GB | Vulnerability scanning |
+| **Velociraptor** | 2 GB | 1 core | 20 GB | DFIR |
+| **Kali Linux** | 2 GB | 2 cores | 30 GB | Attack simulation |
+| **Metasploitable 2** | 512 MB | 1 core | 8 GB | Vulnerable target |
+| **DVWA (Ubuntu)** | 1 GB | 1 core | 15 GB | Web app target |
+| **TOTAL** | **~21.5 GB** | **13 cores** | **~203 GB** | |
+
+
 
 
