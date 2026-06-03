@@ -28,3 +28,13 @@ YOUR HOST MACHINE
         └── DVWA:                10.10.10.11  (target)
 ```
 
+### Why Two Networks?
+
+| Network | Type | Purpose | Internet? |
+|---|---|---|---|
+| **SOC-Management** (192.168.56.0/24) | Host-Only | You SSH from your host into VMs; Wazuh agents report here | Host only, no internet to VMs |
+| **SOC-Lab-Net** (10.10.10.0/24) | Internal | Attack traffic between Kali and targets; Suricata monitors this | No internet at all - completely isolated |
+
+The Suricata/Zeek sensor sits with one interface on `SOC-Lab-Net` (in promiscuous mode to capture all traffic) and one on `SOC-Management` (to forward alerts to Wazuh).
+
+---
