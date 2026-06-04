@@ -213,3 +213,10 @@ nmcli con up "Wired connection 2"
 
 The Suricata/Zeek sensor needs to see **all** traffic on `SOC-Lab-Net`, not just traffic addressed to it.
 
+### In VirtualBox:
+
+1. With the Sensor VM **powered off**, open its settings
+2. Go to **Network → Adapter 2** (the SOC-Lab-Net adapter)
+3. Set **Promiscuous Mode** to: `Allow All`
+4. Click OK
+
