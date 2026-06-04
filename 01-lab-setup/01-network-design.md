@@ -59,3 +59,9 @@ Verify it was created:
 ip addr show vboxnet0
 # Should show 192.168.56.1/24
 ```
+
+### Step 2 - The Internal Network (SOC-Lab-Net)
+
+The internal network (`intnet`) is created automatically when you add it to a VM's network adapter. No pre-configuration needed in VirtualBox. It's a completely isolated virtual switch - only VMs assigned to it can communicate, and there's zero path to your host or the internet.
+
+---
