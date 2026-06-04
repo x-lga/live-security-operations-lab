@@ -145,3 +145,18 @@ All VMs run Ubuntu Server (except Kali). Use Netplan for static IP configuration
 sudo nano /etc/netplan/00-installer-config.yaml
 ```
 
+**Example for Wazuh Manager (single NIC):**
+```yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses:
+        - 192.168.56.10/24
+      gateway4: 192.168.56.1
+      nameservers:
+        addresses: [8.8.8.8, 1.1.1.1]
+```
+
