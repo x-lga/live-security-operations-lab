@@ -78,3 +78,12 @@ Each VM needs specific adapter assignments. Here's the complete map:
 
 Wazuh only needs to be reachable from your host. It doesn't need to be on the attack network.
 
+### Suricata/Zeek Sensor (192.168.56.11)
+
+| Adapter | Type | Network | IP |
+|---|---|---|---|
+| Adapter 1 | Host-Only | vboxnet0 | 192.168.56.11/24 |
+| Adapter 2 | Internal | SOC-Lab-Net | 10.10.10.50/24 (or promiscuous, no IP) |
+
+> Adapter 2 is placed in **promiscuous mode** so Suricata/Zeek captures all traffic on `SOC-Lab-Net` without needing an IP address on that interface.
+
