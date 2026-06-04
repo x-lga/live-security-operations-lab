@@ -259,3 +259,14 @@ sudo ufw allow from 192.168.56.0/24 to any port 443   # Wazuh dashboard
 sudo ufw enable
 ```
 
+### TheHive
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow from 192.168.56.0/24 to any port 22
+sudo ufw allow from 192.168.56.0/24 to any port 9000  # TheHive web UI
+sudo ufw allow from 192.168.56.0/24 to any port 9001  # Cortex web UI
+sudo ufw enable
+```
+
