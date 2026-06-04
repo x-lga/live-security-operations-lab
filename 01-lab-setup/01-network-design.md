@@ -241,3 +241,7 @@ ip link show enp0s8
 
 ---
 
+## 🔥 Firewall Rules (UFW)
+
+Apply these firewall rules on each server VM to restrict access to expected sources only.
+
