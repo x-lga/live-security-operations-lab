@@ -345,9 +345,9 @@ Print or bookmark this. You'll refer to it constantly.
 | metasploitable | 192.168.56.30 | 10.10.10.10 | Target |
 | dvwa | 192.168.56.31 | 10.10.10.11 | Web Target |
 
-*Sensor's attack-net interface has no IP — promiscuous capture only*
+*Sensor's attack-net interface has no IP - promiscuous capture only*
 
 ---
 
-*Next: [`02-wazuh-setup.md`](02-wazuh-setup.md) — deploying your SIEM.*
+*Next: [`02-wazuh-setup.md`](02-wazuh-setup.md) - deploying your SIEM.*
 
