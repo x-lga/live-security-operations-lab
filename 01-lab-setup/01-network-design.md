@@ -108,3 +108,12 @@ OpenVAS needs a leg on the attack network to scan Metasploitable and DVWA.
 |---|---|---|---|
 | Adapter 1 | Host-Only | vboxnet0 | 192.168.56.14/24 |
 
+### Kali Linux (Attacker)
+
+| Adapter | Type | Network | IP |
+|---|---|---|---|
+| Adapter 1 | Host-Only | vboxnet0 | 192.168.56.20/24 |
+| Adapter 2 | Internal | SOC-Lab-Net | 10.10.10.1/24 |
+
+Kali needs both: management access (so you can SSH in or control it) and attack network access (to reach targets).
+
