@@ -220,3 +220,24 @@ The Suricata/Zeek sensor needs to see **all** traffic on `SOC-Lab-Net`, not just
 3. Set **Promiscuous Mode** to: `Allow All`
 4. Click OK
 
+
+### Inside the VM (persistent):
+
+```bash
+# Enable promiscuous mode on the monitoring interface
+sudo ip link set enp0s8 promisc on
+
+# Make it persistent across reboots
+sudo nano /etc/rc.local
+# Add this line before 'exit 0':
+# ip link set enp0s8 promisc on
+```
+
+Verify:
+```bash
+ip link show enp0s8
+# Look for 'PROMISC' in the flags
+```
+
+---
+
