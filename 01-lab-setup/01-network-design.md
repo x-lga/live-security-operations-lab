@@ -282,3 +282,23 @@ sudo ufw enable
 
 ---
 
+## 📡 DNS Resolution (Optional but Recommended)
+
+Add these entries to `/etc/hosts` on your **host machine** so you can use hostnames instead of IPs:
+
+```
+# /etc/hosts additions for CySA Lab
+192.168.56.10  wazuh.lab wazuh
+192.168.56.11  sensor.lab sensor
+192.168.56.12  thehive.lab thehive cortex.lab cortex
+192.168.56.13  openvas.lab openvas
+192.168.56.14  velociraptor.lab velociraptor
+192.168.56.20  kali.lab kali
+192.168.56.30  metasploitable.lab metasploitable
+192.168.56.31  dvwa.lab dvwa
+```
+
+Now you can browse to `https://wazuh.lab` instead of `https://192.168.56.10`.
+
+---
+
