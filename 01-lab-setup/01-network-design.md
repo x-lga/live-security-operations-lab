@@ -245,3 +245,17 @@ ip link show enp0s8
 
 Apply these firewall rules on each server VM to restrict access to expected sources only.
 
+
+### Wazuh Manager
+
+```bash
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow from 192.168.56.0/24 to any port 22    # SSH from management net
+sudo ufw allow from 192.168.56.0/24 to any port 1514  # Wazuh agent UDP
+sudo ufw allow from 192.168.56.0/24 to any port 1515  # Wazuh agent enrollment
+sudo ufw allow from 192.168.56.0/24 to any port 55000 # Wazuh API
+sudo ufw allow from 192.168.56.0/24 to any port 443   # Wazuh dashboard
+sudo ufw enable
+```
+
