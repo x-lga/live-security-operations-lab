@@ -70,3 +70,11 @@ The internal network (`intnet`) is created automatically when you add it to a VM
 
 Each VM needs specific adapter assignments. Here's the complete map:
 
+### Wazuh Manager (192.168.56.10)
+
+| Adapter | Type | Network | IP |
+|---|---|---|---|
+| Adapter 1 | Host-Only | vboxnet0 | 192.168.56.10/24 |
+
+Wazuh only needs to be reachable from your host. It doesn't need to be on the attack network.
+
