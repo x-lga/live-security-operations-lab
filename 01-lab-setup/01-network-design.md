@@ -65,3 +65,8 @@ ip addr show vboxnet0
 The internal network (`intnet`) is created automatically when you add it to a VM's network adapter. No pre-configuration needed in VirtualBox. It's a completely isolated virtual switch - only VMs assigned to it can communicate, and there's zero path to your host or the internet.
 
 ---
+
+## 🖥️ Per-VM Network Adapter Configuration
+
+Each VM needs specific adapter assignments. Here's the complete map:
+
