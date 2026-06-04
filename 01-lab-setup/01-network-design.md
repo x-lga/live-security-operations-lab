@@ -189,3 +189,22 @@ ip addr
 ping 192.168.56.1  # Should reach your host
 ```
 
+### Kali Linux - Static IP
+
+Kali uses NetworkManager. Set static IPs via the GUI or:
+
+```bash
+# Edit connection for management NIC
+nmcli con mod "Wired connection 1" ipv4.addresses 192.168.56.20/24
+nmcli con mod "Wired connection 1" ipv4.gateway 192.168.56.1
+nmcli con mod "Wired connection 1" ipv4.dns "8.8.8.8"
+nmcli con mod "Wired connection 1" ipv4.method manual
+nmcli con up "Wired connection 1"
+
+# Edit connection for attack NIC
+nmcli con mod "Wired connection 2" ipv4.addresses 10.10.10.1/24
+nmcli con mod "Wired connection 2" ipv4.method manual
+nmcli con up "Wired connection 2"
+```
+
+---
