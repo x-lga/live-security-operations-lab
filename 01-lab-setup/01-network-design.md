@@ -125,3 +125,13 @@ Kali needs both: management access (so you can SSH in or control it) and attack 
 | Adapter 1 | Host-Only | vboxnet0 | 192.168.56.30/24 |
 | Adapter 2 | Internal | SOC-Lab-Net | 10.10.10.10/24 |
 
+
+### DVWA Ubuntu (Target)
+
+| Adapter | Type | Network | IP |
+|---|---|---|---|
+| Adapter 1 | Host-Only | vboxnet0 | 192.168.56.31/24 |
+| Adapter 2 | Internal | SOC-Lab-Net | 10.10.10.11/24 |
+
+---
+
