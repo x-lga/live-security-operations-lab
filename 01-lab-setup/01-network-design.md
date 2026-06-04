@@ -38,3 +38,24 @@ YOUR HOST MACHINE
 The Suricata/Zeek sensor sits with one interface on `SOC-Lab-Net` (in promiscuous mode to capture all traffic) and one on `SOC-Management` (to forward alerts to Wazuh).
 
 ---
+
+## 🔧 VirtualBox Network Configuration
+
+### Step 1 - Create the Host-Only Network
+
+```
+VirtualBox → File → Host Network Manager (or Tools → Network)
+```
+
+1. Click **Create** - this makes `vboxnet0`
+2. Set IPv4 Address: `192.168.56.1`
+3. Set IPv4 Network Mask: `255.255.255.0`
+4. **Disable** DHCP Server (we assign static IPs manually)
+5. Click **Apply**
+
+Verify it was created:
+```bash
+# On Linux host
+ip addr show vboxnet0
+# Should show 192.168.56.1/24
+```
