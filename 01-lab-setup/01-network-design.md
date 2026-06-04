@@ -135,3 +135,7 @@ Kali needs both: management access (so you can SSH in or control it) and attack 
 
 ---
 
+## ⚙️ Configuring Static IPs Inside Each VM
+
+All VMs run Ubuntu Server (except Kali). Use Netplan for static IP configuration.
+
