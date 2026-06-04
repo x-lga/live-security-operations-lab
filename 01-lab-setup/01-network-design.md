@@ -208,3 +208,8 @@ nmcli con up "Wired connection 2"
 ```
 
 ---
+
+## 🔍 Enabling Promiscuous Mode on the Sensor Interface
+
+The Suricata/Zeek sensor needs to see **all** traffic on `SOC-Lab-Net`, not just traffic addressed to it.
+
