@@ -93,3 +93,12 @@ Wazuh only needs to be reachable from your host. It doesn't need to be on the at
 |---|---|---|---|
 | Adapter 1 | Host-Only | vboxnet0 | 192.168.56.12/24 |
 
+### OpenVAS (192.168.56.13)
+
+| Adapter | Type | Network | IP |
+|---|---|---|---|
+| Adapter 1 | Host-Only | vboxnet0 | 192.168.56.13/24 |
+| Adapter 2 | Internal | SOC-Lab-Net | 10.10.10.51/24 |
+
+OpenVAS needs a leg on the attack network to scan Metasploitable and DVWA.
+
