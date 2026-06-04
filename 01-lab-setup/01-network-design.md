@@ -302,3 +302,31 @@ Now you can browse to `https://wazuh.lab` instead of `https://192.168.56.10`.
 
 ---
 
+## ✅ Network Verification Checklist
+
+After setting up all VMs, run these tests to confirm connectivity:
+
+```bash
+# From your host machine:
+ping 192.168.56.10  # Wazuh Manager
+ping 192.168.56.11  # Sensor
+ping 192.168.56.20  # Kali
+
+# From Kali (192.168.56.20 / 10.10.10.1):
+ping 10.10.10.10    # Metasploitable — should work (same internal net)
+ping 10.10.10.11    # DVWA — should work
+ping 192.168.56.1   # Your host — should work
+ping 8.8.8.8        # Internet — should FAIL (no internet from attack net)
+
+# From Metasploitable:
+ping 10.10.10.1     # Kali — should work
+ping 192.168.56.1   # Host — should work via management NIC
+ping 8.8.8.8        # Internet — should FAIL from internal net
+```
+
+> ✅ If Kali and Metasploitable can ping each other on 10.10.10.0/24, your attack network is working.
+> ✅ If internet pings fail from the internal network, your isolation is working.
+> ✅ If you can ping all management IPs from your host, your management plane is working.
+
+---
+
