@@ -102,3 +102,9 @@ Wazuh only needs to be reachable from your host. It doesn't need to be on the at
 
 OpenVAS needs a leg on the attack network to scan Metasploitable and DVWA.
 
+### Velociraptor (192.168.56.14)
+
+| Adapter | Type | Network | IP |
+|---|---|---|---|
+| Adapter 1 | Host-Only | vboxnet0 | 192.168.56.14/24 |
+
