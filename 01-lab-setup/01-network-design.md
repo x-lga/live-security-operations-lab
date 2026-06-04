@@ -160,3 +160,32 @@ network:
         addresses: [8.8.8.8, 1.1.1.1]
 ```
 
+**Example for Suricata Sensor (dual NIC):**
+```yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses:
+        - 192.168.56.11/24
+      gateway4: 192.168.56.1
+      nameservers:
+        addresses: [8.8.8.8, 1.1.1.1]
+    enp0s8:
+      dhcp4: no
+      # No IP - promiscuous capture only
+```
+
+Apply changes:
+```bash
+sudo netplan apply
+```
+
+Verify:
+```bash
+ip addr
+ping 192.168.56.1  # Should reach your host
+```
+
