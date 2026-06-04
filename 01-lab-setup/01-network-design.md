@@ -330,3 +330,24 @@ ping 8.8.8.8        # Internet — should FAIL from internal net
 
 ---
 
+## 🗂️ Network Reference Card
+
+Print or bookmark this. You'll refer to it constantly.
+
+| Hostname | Management IP | Attack Net IP | Role |
+|---|---|---|---|
+| wazuh | 192.168.56.10 | - | SIEM Manager |
+| sensor | 192.168.56.11 | 10.10.10.50* | IDS/NSM |
+| thehive | 192.168.56.12 | - | Case Management |
+| openvas | 192.168.56.13 | 10.10.10.51 | Vuln Scanner |
+| velociraptor | 192.168.56.14 | - | DFIR |
+| kali | 192.168.56.20 | 10.10.10.1 | Attacker |
+| metasploitable | 192.168.56.30 | 10.10.10.10 | Target |
+| dvwa | 192.168.56.31 | 10.10.10.11 | Web Target |
+
+*Sensor's attack-net interface has no IP — promiscuous capture only*
+
+---
+
+*Next: [`02-wazuh-setup.md`](02-wazuh-setup.md) — deploying your SIEM.*
+
