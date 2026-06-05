@@ -395,3 +395,13 @@ sudo systemctl status wazuh-indexer
 df -h
 sudo /usr/share/wazuh-indexer/bin/wazuh-indexer-keystore list
 ```
+
+**Agent not connecting:**
+```bash
+# On the agent VM:
+sudo tail -50 /var/ossec/logs/ossec.log
+# Look for "Connected to server" or error messages
+
+# Check firewall on manager allows port 1514
+sudo ufw status
+```
