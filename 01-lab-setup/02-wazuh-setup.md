@@ -379,3 +379,11 @@ Add this to `/var/ossec/etc/ossec.conf`:
 - [ ] Custom rules loaded without errors (check `ossec.log`)
 
 ---
+
+## Troubleshooting
+
+**Dashboard won't load:**
+```bash
+sudo systemctl status wazuh-dashboard
+sudo journalctl -u wazuh-dashboard -n 50
+```
