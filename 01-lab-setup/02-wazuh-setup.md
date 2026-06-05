@@ -48,4 +48,43 @@ sudo apt install curl wget gnupg apt-transport-https lsb-release -y
 
 ---
 
+## Step 2 - Install Wazuh All-in-One (Recommended for Lab)
+
+Wazuh provides an installation assistant that handles the full stack. This is the fastest way to get a working environment.
+
+```bash
+# Download the Wazuh installation assistant
+curl -sO https://packages.wazuh.com/4.x/wazuh-install.sh
+
+# Make it executable
+chmod +x ./wazuh-install.sh
+
+# Run the all-in-one installation
+# This installs Manager + Indexer + Dashboard on one node
+sudo bash ./wazuh-install.sh -a
+```
+
+This will take **10–20 minutes**. The script will:
+1. Configure system prerequisites
+2. Install and configure Wazuh Indexer (OpenSearch)
+3. Install Wazuh Manager
+4. Install Wazuh Dashboard
+
+At the end of installation, the script outputs:
+
+```
+INFO: --- Summary ---
+INFO: You can access the web interface https://<wazuh-dashboard-ip>
+    User: admin
+    Password: <GENERATED_PASSWORD>
+```
+
+**Save this password immediately.** You can also retrieve it later:
+
+```bash
+sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
+```
+
+---
+
 
