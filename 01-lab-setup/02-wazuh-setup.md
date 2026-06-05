@@ -225,3 +225,26 @@ sudo systemctl restart wazuh-manager
 ```
 
 ---
+
+## Step 6 - Create Additional Dashboard Users
+
+In production you'd have different access levels. For the lab, create a read-only analyst account:
+
+```bash
+# Get an API token
+TOKEN=$(curl -s -u admin:YOUR_PASSWORD -k \
+  -X POST 'https://localhost:55000/security/user/authenticate?raw=true')
+
+# Create analyst user
+curl -k -X POST "https://localhost:55000/security/users" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "analyst",
+    "password": "Analyst_Lab_2024!",
+    "allow_run_as": false
+  }'
+```
+
+---
+
