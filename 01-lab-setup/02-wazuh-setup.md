@@ -16,3 +16,14 @@
 The full stack runs on a single Ubuntu Server VM. In production these would be separate servers, but for the lab, one box handles it all.
 
 ---
+
+## Prerequisites
+
+- Ubuntu Server 22.04 LTS VM running
+- Static IP set to `192.168.56.10`
+- At least 6 GB RAM allocated
+- At least 50 GB disk
+- Internet access (at least for the initial install - we'll restrict it after)
+
+---
+
