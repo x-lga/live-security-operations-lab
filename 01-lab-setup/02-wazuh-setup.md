@@ -87,4 +87,21 @@ sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
 
 ---
 
+## Step 3 - Verify the Installation
+
+```bash
+# Check all Wazuh services are running
+sudo systemctl status wazuh-manager
+sudo systemctl status wazuh-indexer
+sudo systemctl status wazuh-dashboard
+
+# Check Wazuh Manager logs for errors
+sudo tail -100 /var/ossec/logs/ossec.log
+
+# Check the API is responding
+curl -k -X GET "https://localhost:55000/" \
+  -H "Authorization: Bearer $(curl -s -u admin:admin -k -X POST 'https://localhost:55000/security/user/authenticate?raw=true')"
+```
+
+---
 
