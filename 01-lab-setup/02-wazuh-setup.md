@@ -333,3 +333,23 @@ sudo systemctl restart wazuh-manager
 ```
 
 ---
+
+## Step 10 - Wazuh Integrations
+
+### Integrate with TheHive (after TheHive is set up)
+
+Add this to `/var/ossec/etc/ossec.conf`:
+
+```xml
+<integration>
+  <name>thehive</name>
+  <hook_url>http://192.168.56.12:9000</hook_url>
+  <api_key>YOUR_THEHIVE_API_KEY</api_key>
+  <alert_format>json</alert_format>
+  <rule_id>100100,100101,100102,100200,100201</rule_id>
+</integration>
+```
+
+> Replace `YOUR_THEHIVE_API_KEY` with the key generated in the TheHive setup (step 05).
+
+---
