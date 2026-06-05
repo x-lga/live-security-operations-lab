@@ -120,3 +120,11 @@ Accept the self-signed certificate warning and log in with:
 You should see the Wazuh dashboard. No agents are connected yet - that's expected.
 
 ---
+
+## Step 5 - Wazuh Manager Configuration
+
+The main config file is at `/var/ossec/etc/ossec.conf`. We'll tune several settings for the lab.
+
+```bash
+sudo nano /var/ossec/etc/ossec.conf
+```
