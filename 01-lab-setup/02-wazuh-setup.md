@@ -156,3 +156,34 @@ sudo nano /var/ossec/etc/ossec.conf
   <email_alert_level>12</email_alert_level>
 </alerts>
 ```
+
+**File Integrity Monitoring (FIM)** — add important paths to monitor:
+```xml
+<syscheck>
+  <disabled>no</disabled>
+  <frequency>43200</frequency>
+  <scan_on_start>yes</scan_on_start>
+
+  <!-- Alert on new files -->
+  <alert_new_files>yes</alert_new_files>
+
+  <!-- Directories to monitor -->
+  <directories check_all="yes">/etc,/usr/bin,/usr/sbin</directories>
+  <directories check_all="yes">/bin,/sbin</directories>
+  <directories check_all="yes" realtime="yes">/tmp</directories>
+  <directories check_all="yes" report_changes="yes">/var/ossec/etc</directories>
+
+  <!-- Ignore these (too noisy) -->
+  <ignore>/etc/mtab</ignore>
+  <ignore>/etc/hosts.deny</ignore>
+  <ignore>/etc/mail/statistics</ignore>
+  <ignore>/etc/random-seed</ignore>
+  <ignore>/etc/adjtime</ignore>
+  <ignore>/etc/httpd/logs</ignore>
+  <ignore>/etc/utmpx</ignore>
+  <ignore>/etc/wtmpx</ignore>
+  <ignore>/etc/cups/certs</ignore>
+  <ignore>/etc/dumpdates</ignore>
+  <ignore>/etc/svc/volatile</ignore>
+</syscheck>
+```
