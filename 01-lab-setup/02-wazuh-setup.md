@@ -105,3 +105,18 @@ curl -k -X GET "https://localhost:55000/" \
 
 ---
 
+## Step 4 - Access the Dashboard
+
+From your **host machine**, open a browser and navigate to:
+
+```
+https://192.168.56.10
+```
+
+Accept the self-signed certificate warning and log in with:
+- Username: `admin`
+- Password: (the one generated during install)
+
+You should see the Wazuh dashboard. No agents are connected yet - that's expected.
+
+---
