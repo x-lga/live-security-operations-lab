@@ -281,3 +281,20 @@ sudo systemctl enable wazuh-agent
 
 ---
 
+## Step 8 - Enroll Remote Agents
+
+For each Ubuntu VM (sensor, thehive, openvas, velociraptor, targets), you'll enroll agents. The agent install script is in `scripts/setup/install-wazuh-agent.sh`. Here's the manual process:
+
+**On each target Ubuntu VM:**
+```bash
+# Install the agent (requires the repo setup - same as above)
+sudo apt install wazuh-agent -y
+
+# Configure the manager IP
+sudo sed -i 's/MANAGER_IP/192.168.56.10/' /var/ossec/etc/ossec.conf
+
+# Start and enable the agent
+sudo systemctl daemon-reload
+sudo systemctl start wazuh-agent
+sudo systemctl enable wazuh-agent
+```
