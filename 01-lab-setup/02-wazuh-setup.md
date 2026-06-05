@@ -311,3 +311,25 @@ sudo /var/ossec/bin/agent_control -lc
 In the dashboard: **Agents** → you should see each enrolled VM appear.
 
 ---
+
+## Step 9 - Import Custom Detection Rules
+
+Our custom rules live in `detection-rules/wazuh/`. Copy them to the Wazuh rules directory:
+
+```bash
+# Copy custom rules
+sudo cp /path/to/cysa-lab/detection-rules/wazuh/custom-rules.xml \
+  /var/ossec/etc/rules/local_rules.xml
+
+# Copy custom decoders
+sudo cp /path/to/cysa-lab/detection-rules/wazuh/custom-decoders.xml \
+  /var/ossec/etc/decoders/local_decoder.xml
+
+# Test the configuration before restarting
+sudo /var/ossec/bin/wazuh-logtest
+
+# Restart to apply
+sudo systemctl restart wazuh-manager
+```
+
+---
