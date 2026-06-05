@@ -27,3 +27,25 @@ The full stack runs on a single Ubuntu Server VM. In production these would be s
 
 ---
 
+## Step 1 - Prepare the Ubuntu Server VM
+
+```bash
+# Update and upgrade
+sudo apt update && sudo apt upgrade -y
+
+# Set the hostname
+sudo hostnamectl set-hostname wazuh-manager
+
+# Confirm your IP
+ip addr show enp0s3
+
+# Set the timezone (adjust to yours)
+sudo timedatectl set-timezone Africa/Nairobi
+
+# Install useful utilities
+sudo apt install curl wget gnupg apt-transport-https lsb-release -y
+```
+
+---
+
+
