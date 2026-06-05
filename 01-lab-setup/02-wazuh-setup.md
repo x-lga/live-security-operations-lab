@@ -367,3 +367,15 @@ Add this to `/var/ossec/etc/ossec.conf`:
 | **Threat Intelligence** | IOC matches (requires MISP integration) |
 
 ---
+
+## ✅ Wazuh Setup Verification Checklist
+
+- [ ] Wazuh Manager service is running (`systemctl status wazuh-manager`)
+- [ ] Wazuh Indexer service is running (`systemctl status wazuh-indexer`)
+- [ ] Wazuh Dashboard accessible at `https://192.168.56.10`
+- [ ] Dashboard login works with admin credentials
+- [ ] At least one agent appears in the Agents section
+- [ ] Test alert fires: run `sudo useradd testuser` on an agent VM and watch for FIM/auth alerts
+- [ ] Custom rules loaded without errors (check `ossec.log`)
+
+---
