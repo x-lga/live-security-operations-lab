@@ -387,3 +387,11 @@ Add this to `/var/ossec/etc/ossec.conf`:
 sudo systemctl status wazuh-dashboard
 sudo journalctl -u wazuh-dashboard -n 50
 ```
+
+**Indexer not running:**
+```bash
+sudo systemctl status wazuh-indexer
+# If disk is full, the indexer stops:
+df -h
+sudo /usr/share/wazuh-indexer/bin/wazuh-indexer-keystore list
+```
