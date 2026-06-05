@@ -128,3 +128,23 @@ The main config file is at `/var/ossec/etc/ossec.conf`. We'll tune several setti
 ```bash
 sudo nano /var/ossec/etc/ossec.conf
 ```
+
+### Key Configuration Sections
+
+**Global Settings:**
+```xml
+<global>
+  <jsonout_output>yes</jsonout_output>
+  <alerts_log>yes</alerts_log>
+  <logall>no</logall>
+  <logall_json>no</logall_json>
+  <email_notification>no</email_notification>
+  <smtp_server>smtp.example.wpg</smtp_server>
+  <email_from>wazuh@example.com</email_from>
+  <email_to>recipient@example.com</email_to>
+  <email_maxperhour>12</email_maxperhour>
+  <email_log_source>alerts.log</email_log_source>
+  <agents_disconnection_time>10m</agents_disconnection_time>
+  <agents_disconnection_alert_id>504</agents_disconnection_alert_id>
+</global>
+```
