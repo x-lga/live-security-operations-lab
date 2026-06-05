@@ -148,3 +148,11 @@ sudo nano /var/ossec/etc/ossec.conf
   <agents_disconnection_alert_id>504</agents_disconnection_alert_id>
 </global>
 ```
+
+**Alert Thresholds** (lower the threshold to see more alerts in the lab):
+```xml
+<alerts>
+  <log_alert_level>3</log_alert_level>
+  <email_alert_level>12</email_alert_level>
+</alerts>
+```
