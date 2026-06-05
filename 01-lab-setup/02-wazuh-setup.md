@@ -248,3 +248,36 @@ curl -k -X POST "https://localhost:55000/security/users" \
 
 ---
 
+## Step 7 - Install Wazuh Agent on the Manager VM (Self-Monitoring)
+
+It's best practice to run an agent on the manager itself to capture its own activity:
+
+```bash
+# Add the Wazuh repository (if not already added by the install script)
+curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | \
+  gpg --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/wazuh.gpg \
+  --import && chmod 644 /usr/share/keyrings/wazuh.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/wazuh.gpg] \
+  https://packages.wazuh.com/4.x/apt/ stable main" | \
+  sudo tee -a /etc/apt/sources.list.d/wazuh.list
+
+sudo apt update
+
+# Install the agent
+sudo apt install wazuh-agent -y
+
+# Configure it to point to the local manager
+sudo sed -i 's/MANAGER_IP/127.0.0.1/' /var/ossec/etc/ossec.conf
+
+# Set the agent name
+sudo sed -i 's/<agent_name>.*<\/agent_name>/<agent_name>wazuh-manager<\/agent_name>/' \
+  /var/ossec/etc/ossec.conf
+
+# Start the agent
+sudo systemctl start wazuh-agent
+sudo systemctl enable wazuh-agent
+```
+
+---
+
