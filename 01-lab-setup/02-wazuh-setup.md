@@ -187,3 +187,41 @@ sudo nano /var/ossec/etc/ossec.conf
   <ignore>/etc/svc/volatile</ignore>
 </syscheck>
 ```
+
+**Log Collection** - tell Wazuh what to read on the manager itself:
+```xml
+<localfile>
+  <log_format>syslog</log_format>
+  <location>/var/log/auth.log</location>
+</localfile>
+
+<localfile>
+  <log_format>syslog</log_format>
+  <location>/var/log/syslog</location>
+</localfile>
+
+<localfile>
+  <log_format>apache</log_format>
+  <location>/var/log/apache2/error.log</location>
+</localfile>
+
+<localfile>
+  <log_format>command</log_format>
+  <command>df -P</command>
+  <frequency>360</frequency>
+</localfile>
+
+<localfile>
+  <log_format>full_command</log_format>
+  <command>netstat -tulpn | sed 's/\([[:alnum:]]\+\)\ \+[[:digit:]]\+\ \+[[:digit:]]\+\ \+\(.*\):\([[:digit:]]*\)\ \+\([0-9\.\:\*]*\).\+\ \([[:digit:]]*\/[[:alnum:]\_\-]*\).*/\1 \2 == \3 == \4 \5/' | sort -k 4 -g | sed 's/ == \(.*\) ==\ / \1 /'</command>
+  <alias>netstat listening ports</alias>
+  <frequency>360</frequency>
+</localfile>
+```
+
+Apply changes and restart:
+```bash
+sudo systemctl restart wazuh-manager
+```
+
+---
