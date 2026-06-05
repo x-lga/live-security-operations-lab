@@ -353,3 +353,17 @@ Add this to `/var/ossec/etc/ossec.conf`:
 > Replace `YOUR_THEHIVE_API_KEY` with the key generated in the TheHive setup (step 05).
 
 ---
+
+## 🔎 Dashboard Navigation Reference
+
+| Section | What You'll Find |
+|---|---|
+| **Overview** | Real-time alert counts by severity and category |
+| **Agents** | All connected agents and their health |
+| **Security Events** | All fired alerts with full log context |
+| **Integrity Monitoring** | File changes detected on agents |
+| **Vulnerabilities** | CVEs detected on agent systems (requires vuln module) |
+| **MITRE ATT&CK** | Alerts mapped to ATT&CK techniques |
+| **Threat Intelligence** | IOC matches (requires MISP integration) |
+
+---
