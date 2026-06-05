@@ -405,3 +405,14 @@ sudo tail -50 /var/ossec/logs/ossec.log
 # Check firewall on manager allows port 1514
 sudo ufw status
 ```
+
+**Rules not triggering:**
+```bash
+# Test rules manually with a sample log line
+sudo /var/ossec/bin/wazuh-logtest
+# Paste in a sample log line and see which rules fire
+```
+
+---
+
+*Next: [`03-suricata-setup.md`](03-suricata-setup.md) - deploying your network IDS.*
