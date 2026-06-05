@@ -298,3 +298,16 @@ sudo systemctl daemon-reload
 sudo systemctl start wazuh-agent
 sudo systemctl enable wazuh-agent
 ```
+**On the Wazuh Manager - approve the enrollment:**
+```bash
+# List pending agent enrollments
+sudo /var/ossec/bin/agent_control -l
+
+# The agents should auto-enroll if using the default settings
+# Check connected agents
+sudo /var/ossec/bin/agent_control -lc
+```
+
+In the dashboard: **Agents** → you should see each enrolled VM appear.
+
+---
