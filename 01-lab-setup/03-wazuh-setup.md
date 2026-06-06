@@ -103,3 +103,67 @@ af-packet:
     use-mmap: yes
     tpacket-v3: yes
 ```
+
+### 2.3 - Configure EVE JSON Output (for Wazuh integration)
+
+Find the `outputs` section and configure EVE JSON:
+
+```yaml
+outputs:
+  - eve-log:
+      enabled: yes
+      filetype: regular
+      filename: /var/log/suricata/eve.json
+      # Rotate logs daily
+      rotate-interval: day
+      # What to log
+      types:
+        - alert:
+            payload: yes           # Include packet payload in alerts
+            payload-buffer-size: 4kb
+            payload-printable: yes
+            packet: yes
+            http-body: yes
+            http-body-printable: yes
+            metadata: yes
+            tagged-packets: yes
+        - anomaly:
+            enabled: yes
+            types:
+              decode: yes
+              stream: yes
+              applayer: yes
+        - http:
+            extended: yes
+        - dns:
+            version: 2
+        - tls:
+            extended: yes
+        - files:
+            force-magic: yes
+        - smtp:
+        - ftp
+        - rdp
+        - nfs
+        - smb
+        - tftp
+        - ikev2
+        - krb5
+        - bittorrent-dht
+        - snmp
+        - rfb
+        - sip
+        - dhcp:
+            enabled: yes
+            extended: yes
+        - ssh
+        - tunnel
+        - mqtt:
+            passwords: yes
+        - flow
+        - netflow
+        - stats:
+            totals: yes
+            threads: no
+            deltas: no
+```
