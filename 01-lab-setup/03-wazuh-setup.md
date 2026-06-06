@@ -362,3 +362,57 @@ for sig, count in collections.Counter(alerts).most_common(20):
 ```
 
 ---
+
+## Understanding Suricata Alert Structure (EVE JSON)
+
+Every alert in `eve.json` looks like this:
+
+```json
+{
+  "timestamp": "2024-01-15T14:23:01.456789+0300",
+  "flow_id": 1234567890,
+  "event_type": "alert",
+  "src_ip": "10.10.10.1",
+  "src_port": 54321,
+  "dest_ip": "10.10.10.10",
+  "dest_port": 80,
+  "proto": "TCP",
+  "alert": {
+    "action": "allowed",
+    "gid": 1,
+    "signature_id": 2019284,
+    "rev": 5,
+    "signature": "ET SCAN Possible Nmap User-Agent Observed",
+    "category": "Web Application Attack",
+    "severity": 2,
+    "metadata": {
+      "affected_product": ["Any"],
+      "attack_target": ["Any"],
+      "created_at": ["2013_01_14"],
+      "deployment": ["Perimeter"],
+      "former_category": ["SCAN"],
+      "mitre_tactic_id": ["TA0043"],
+      "mitre_tactic_name": ["Reconnaissance"],
+      "mitre_technique_id": ["T1595"],
+      "mitre_technique_name": ["Active Scanning"],
+      "performance_impact": ["Low"],
+      "signature_severity": ["Minor"],
+      "updated_at": ["2023_10_26"]
+    }
+  },
+  "http": {
+    "http_port": 0,
+    "url": "/",
+    "http_user_agent": "Mozilla/5.0 (compatible; Nmap Scripting Engine)"
+  },
+  "app_proto": "http"
+}
+```
+
+Key fields for triage:
+- `alert.signature` — the rule that fired
+- `alert.severity` — 1 (critical) to 3 (low)
+- `src_ip` / `dest_ip` — who's talking to whom
+- `alert.metadata.mitre_technique_id` — maps the alert to ATT&CK
+
+---
