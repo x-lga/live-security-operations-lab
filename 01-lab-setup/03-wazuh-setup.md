@@ -334,3 +334,31 @@ echo "0 2 * * * root /usr/bin/suricata-update && systemctl reload suricata" | \
 ```
 
 ---
+
+## Suricata Operational Commands
+
+```bash
+# Reload rules without restarting (sends SIGUSR2)
+sudo systemctl reload suricata
+
+# Check Suricata statistics
+sudo cat /var/log/suricata/stats.log | tail -50
+
+# Test a specific rule against a PCAP file
+sudo suricata -r /path/to/capture.pcap -c /etc/suricata/suricata.yaml \
+  -l /tmp/suricata-test/
+
+# List loaded rules
+sudo suricata --list-app-layer-protos
+
+# Check which rules fired most often (useful for tuning)
+grep '"event_type":"alert"' /var/log/suricata/eve.json | \
+  python3 -c "
+import json,sys,collections
+alerts = [json.loads(l)['alert']['signature'] for l in sys.stdin if 'alert' in l]
+for sig, count in collections.Counter(alerts).most_common(20):
+    print(f'{count:5d}  {sig}')
+"
+```
+
+---
