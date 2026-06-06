@@ -40,3 +40,11 @@ Zeek produces structured tab-separated log files. These are the most important:
 | `smtp.log` | SMTP email metadata |
 
 ---
+
+## Prerequisites
+
+- Sensor VM (same as Suricata) - Ubuntu Server 22.04
+- enp0s8 in promiscuous mode
+- Suricata already installed and running
+
+---
