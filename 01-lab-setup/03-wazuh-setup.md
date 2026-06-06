@@ -167,3 +167,16 @@ outputs:
             threads: no
             deltas: no
 ```
+
+
+### 2.4 - Set Up the Rules Directory
+
+```yaml
+default-rule-path: /var/lib/suricata/rules
+
+rule-files:
+  - suricata.rules
+  - /etc/suricata/rules/local.rules
+```
+
+---
