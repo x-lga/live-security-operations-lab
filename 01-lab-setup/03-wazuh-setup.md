@@ -206,3 +206,21 @@ wc -l /var/lib/suricata/rules/suricata.rules
 ```
 
 ---
+
+## Step 4 - Install Custom Lab Rules
+
+Copy the custom rules from the repo:
+
+```bash
+sudo mkdir -p /etc/suricata/rules/
+sudo cp /path/to/cysa-lab/detection-rules/suricata/local.rules \
+  /etc/suricata/rules/local.rules
+```
+
+Or create them manually (see `detection-rules/suricata/local.rules` for full content). A quick preview:
+
+```bash
+sudo nano /etc/suricata/rules/local.rules
+```
+
+---
