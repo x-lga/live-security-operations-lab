@@ -224,3 +224,16 @@ sudo nano /etc/suricata/rules/local.rules
 ```
 
 ---
+## Step 5 - Test the Configuration
+
+```bash
+# Test the configuration file for syntax errors
+sudo suricata -T -c /etc/suricata/suricata.yaml
+
+# Expected output:
+# <Date> - <Info> - Running suricata under test mode
+# ...
+# Configuration provided was successfully loaded. Exiting.
+```
+
+---
