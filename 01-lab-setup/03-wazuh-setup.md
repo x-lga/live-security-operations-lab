@@ -285,3 +285,24 @@ sudo tcpdump -i enp0s8 -c 10
 ```
 
 ---
+
+## Step 8 - Integrate Suricata Alerts with Wazuh
+
+Tell Wazuh to read Suricata's EVE JSON log. On the **Sensor VM**, add this to `/var/ossec/etc/ossec.conf`:
+
+```xml
+<localfile>
+  <log_format>json</log_format>
+  <location>/var/log/suricata/eve.json</location>
+  <label key="@source">suricata</label>
+</localfile>
+```
+
+Restart the Wazuh agent:
+```bash
+sudo systemctl restart wazuh-agent
+```
+
+Now check the **Wazuh dashboard** under **Security Events**. Filter by `rule.groups: suricata` — you should see Suricata alerts appearing in the SIEM.
+
+---
