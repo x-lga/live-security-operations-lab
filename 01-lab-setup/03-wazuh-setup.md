@@ -306,3 +306,21 @@ sudo systemctl restart wazuh-agent
 Now check the **Wazuh dashboard** under **Security Events**. Filter by `rule.groups: suricata` — you should see Suricata alerts appearing in the SIEM.
 
 ---
+
+## Step 9 - Tune Noisy Rules (Suppress False Positives)
+
+In a lab environment, some rules will fire constantly on benign traffic. Create a suppression list:
+
+```bash
+sudo nano /etc/suricata/threshold.conf
+```
+
+```
+# Suppress rule 2010935 (ET SCAN Nmap OS Detection) for the Kali IP to reduce noise
+suppress gen_id 1, sig_id 2010935, track by_src, ip 10.10.10.1
+
+# Rate limit repeated HTTP 404 alerts — alert max 10 per minute
+rate_filter gen_id 1, sig_id 2019876, new_action alert, timeout 60, count 10, seconds 60, track by_src
+```
+
+---
