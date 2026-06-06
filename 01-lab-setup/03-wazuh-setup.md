@@ -262,3 +262,26 @@ Expected healthy output:
 
 ---
 
+## Step 7 - Verify Detection is Working
+
+From the **Kali VM**, run an nmap scan against Metasploitable:
+
+```bash
+nmap -sV -p 1-1000 10.10.10.10
+```
+
+On the **Sensor VM**, check the EVE JSON log:
+
+```bash
+sudo tail -f /var/log/suricata/eve.json | python3 -m json.tool | grep -A5 '"event_type":"alert"'
+```
+
+You should see alert entries appearing within seconds of the scan. If you see nothing, check:
+
+```bash
+# Is traffic actually hitting the interface?
+sudo tcpdump -i enp0s8 -c 10
+# If nothing comes back, your promiscuous mode or VirtualBox config is wrong
+```
+
+---
