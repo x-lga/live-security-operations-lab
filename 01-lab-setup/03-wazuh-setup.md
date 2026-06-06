@@ -45,3 +45,11 @@ suricata --version
 
 ---
 
+## Step 2 - Configure Suricata
+
+The main config is at `/etc/suricata/suricata.yaml`. It's long — we'll only touch the critical sections.
+
+```bash
+sudo nano /etc/suricata/suricata.yaml
+```
+
