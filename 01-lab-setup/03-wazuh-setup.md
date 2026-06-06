@@ -28,3 +28,20 @@ Suricata runs on the **Sensor VM** (192.168.56.11), listening on `enp0s8` (the p
 
 ---
 
+## Step 1 - Install Suricata
+
+```bash
+# Add the Suricata OISF stable PPA (gives us latest stable release)
+sudo add-apt-repository ppa:oisf/suricata-stable -y
+sudo apt update
+
+# Install Suricata
+sudo apt install suricata -y
+
+# Verify installation
+suricata --version
+# Should output: Suricata version 7.x.x RELEASE
+```
+
+---
+
