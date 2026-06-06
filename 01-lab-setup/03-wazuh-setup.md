@@ -19,3 +19,12 @@ Suricata runs on the **Sensor VM** (192.168.56.11), listening on `enp0s8` (the p
 
 ---
 
+## Prerequisites
+
+- Sensor VM running Ubuntu Server 22.04
+- IP: 192.168.56.11 (management), no IP on enp0s8 (monitoring)
+- enp0s8 in promiscuous mode (set in VirtualBox and with `ip link set promisc on`)
+- Wazuh Agent installed on this VM (per the Wazuh setup guide)
+
+---
+
