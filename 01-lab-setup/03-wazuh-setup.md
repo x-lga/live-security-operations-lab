@@ -180,3 +180,29 @@ rule-files:
 ```
 
 ---
+
+## Step 3 - Update Suricata Rules (Emerging Threats)
+
+```bash
+# Update rules using suricata-update
+sudo suricata-update
+
+# List available rule sources
+sudo suricata-update list-sources
+
+# Enable free Emerging Threats Open rules
+sudo suricata-update enable-source et/open
+
+# Enable OISF rules
+sudo suricata-update enable-source oisf/trafficid
+
+# Run the update to download and merge rules
+sudo suricata-update
+
+# Verify rules were downloaded
+ls -la /var/lib/suricata/rules/
+wc -l /var/lib/suricata/rules/suricata.rules
+# Should show tens of thousands of rules
+```
+
+---
