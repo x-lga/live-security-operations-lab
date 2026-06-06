@@ -89,3 +89,17 @@ vars:
     VXLAN_PORTS: 4789
     TEREDO_PORTS: 3544
 ```
+
+### 2.2 - Set the Monitoring Interface
+
+Find the `af-packet` section (or `pcap` — af-packet is preferred on Linux):
+
+```yaml
+af-packet:
+  - interface: enp0s8      # Your promiscuous monitoring interface
+    cluster-id: 99
+    cluster-type: cluster_flow
+    defrag: yes
+    use-mmap: yes
+    tpacket-v3: yes
+```
