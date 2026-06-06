@@ -416,3 +416,17 @@ Key fields for triage:
 - `alert.metadata.mitre_technique_id` — maps the alert to ATT&CK
 
 ---
+
+## ✅ Suricata Setup Verification Checklist
+
+- [ ] Suricata service running (`systemctl status suricata`)
+- [ ] No errors in `/var/log/suricata/suricata.log`
+- [ ] EVE JSON file being written to (`ls -la /var/log/suricata/eve.json`)
+- [ ] Nmap scan from Kali generates alerts in `eve.json`
+- [ ] Wazuh dashboard showing Suricata alerts under Security Events
+- [ ] Custom rules loaded (`grep "local.rules" /etc/suricata/suricata.yaml`)
+- [ ] Rule update cron job configured
+
+---
+
+*Next: [`04-zeek-setup.md`](04-zeek-setup.md) - adding network analysis with Zeek.*
