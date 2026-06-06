@@ -324,3 +324,13 @@ rate_filter gen_id 1, sig_id 2019876, new_action alert, timeout 60, count 10, se
 ```
 
 ---
+
+## Step 10 - Set Up Rule Auto-Update (Cron)
+
+```bash
+# Update rules daily at 2 AM
+echo "0 2 * * * root /usr/bin/suricata-update && systemctl reload suricata" | \
+  sudo tee /etc/cron.d/suricata-update
+```
+
+---
