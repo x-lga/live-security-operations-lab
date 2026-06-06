@@ -21,3 +21,22 @@
 Think of it this way: Suricata is your burglar alarm; Zeek is your security camera system.
 
 ---
+
+## Zeek Log Files Reference
+
+Zeek produces structured tab-separated log files. These are the most important:
+
+| Log File | Contains |
+|---|---|
+| `conn.log` | Every TCP/UDP/ICMP connection: IPs, ports, duration, bytes, state |
+| `dns.log` | Every DNS query and response |
+| `http.log` | Every HTTP request: method, URI, user-agent, status, response size |
+| `ssl.log` | Every TLS session: certificate details, cipher suites, validation |
+| `files.log` | Every file transferred with MD5/SHA1/SHA256 hashes |
+| `weird.log` | Protocol anomalies and unexpected behaviors |
+| `notice.log` | Zeek's own alert-like notices (policy violations, etc.) |
+| `x509.log` | Full SSL certificate details |
+| `ssh.log` | SSH connection details (direction, auth outcome, algorithms) |
+| `smtp.log` | SMTP email metadata |
+
+---
