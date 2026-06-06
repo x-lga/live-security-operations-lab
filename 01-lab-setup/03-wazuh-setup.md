@@ -237,3 +237,28 @@ sudo suricata -T -c /etc/suricata/suricata.yaml
 ```
 
 ---
+
+## Step 6 - Start Suricata as a Service
+
+```bash
+# Enable Suricata to start at boot
+sudo systemctl enable suricata
+
+# Start Suricata
+sudo systemctl start suricata
+
+# Check status
+sudo systemctl status suricata
+
+# Watch the logs for startup errors
+sudo tail -f /var/log/suricata/suricata.log
+```
+
+Expected healthy output:
+```
+... engine started
+... all threads are running
+```
+
+---
+
