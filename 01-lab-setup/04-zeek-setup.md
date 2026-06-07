@@ -120,3 +120,24 @@ sudo nano /opt/zeek/etc/networks.cfg
 10.10.10.0/24     Attack Lab Network
 192.168.56.0/24   SOC Management Network
 ```
+
+### 2.3 - Configure Global Settings
+
+```bash
+sudo nano /opt/zeek/etc/zeekctl.cfg
+```
+
+Key settings to verify/adjust:
+```ini
+# Log rotation interval (in minutes)
+LogRotationInterval = 3600
+
+# Log expiration (in days) - keep 30 days of logs
+LogExpireInterval = 30
+
+# Storage directory for logs
+LogDir = /opt/zeek/logs
+
+# Enable JSON log format (for Wazuh integration)
+LogFormat = json
+```
