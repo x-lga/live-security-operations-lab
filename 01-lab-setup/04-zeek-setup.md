@@ -223,3 +223,57 @@ tail -f /opt/zeek/logs/current/http.log | python3 -m json.tool
 You should see the connection from Kali (10.10.10.1) to Metasploitable (10.10.10.10) appear in `conn.log`.
 
 ---
+
+## Step 5 - Integrate Zeek Logs with Wazuh
+
+Add Zeek log sources to the Wazuh agent on the Sensor VM:
+
+```bash
+sudo nano /var/ossec/etc/ossec.conf
+```
+
+Add these `<localfile>` blocks:
+
+```xml
+<!-- Zeek connection log -->
+<localfile>
+  <log_format>json</log_format>
+  <location>/opt/zeek/logs/current/conn.log</location>
+  <label key="@source">zeek-conn</label>
+</localfile>
+
+<!-- Zeek DNS log -->
+<localfile>
+  <log_format>json</log_format>
+  <location>/opt/zeek/logs/current/dns.log</location>
+  <label key="@source">zeek-dns</label>
+</localfile>
+
+<!-- Zeek HTTP log -->
+<localfile>
+  <log_format>json</log_format>
+  <location>/opt/zeek/logs/current/http.log</location>
+  <label key="@source">zeek-http</label>
+</localfile>
+
+<!-- Zeek notice log (Zeek's own alerts) -->
+<localfile>
+  <log_format>json</log_format>
+  <location>/opt/zeek/logs/current/notice.log</location>
+  <label key="@source">zeek-notice</label>
+</localfile>
+
+<!-- Zeek weird log (anomalies) -->
+<localfile>
+  <log_format>json</log_format>
+  <location>/opt/zeek/logs/current/weird.log</location>
+  <label key="@source">zeek-weird</label>
+</localfile>
+```
+
+Restart the agent:
+```bash
+sudo systemctl restart wazuh-agent
+```
+
+---
