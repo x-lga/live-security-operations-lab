@@ -72,3 +72,7 @@ zeek --version
 ```
 
 ---
+
+## Step 2 - Configure Zeek
+
+Zeek's primary configuration is in `/opt/zeek/etc/`.
