@@ -17,3 +17,5 @@ Wazuh Manager ──► (integration webhook) ──► TheHive
                                                     ├── Shodan
                                                     └── MISP (threat intel lookup)
 ```
+
+- **TheHive**: The case management platform. Think of it as a ticket system purpose-built for security incidents.
