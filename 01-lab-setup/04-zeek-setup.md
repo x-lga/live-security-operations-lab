@@ -76,3 +76,35 @@ zeek --version
 ## Step 2 - Configure Zeek
 
 Zeek's primary configuration is in `/opt/zeek/etc/`.
+
+### 2.1 - Set the Monitoring Interface
+
+```bash
+sudo nano /opt/zeek/etc/node.cfg
+```
+
+```ini
+[zeek]
+type=standalone
+host=localhost
+interface=enp0s8
+```
+
+For a multi-core setup (better performance):
+```ini
+[manager]
+type=manager
+host=localhost
+
+[proxy-1]
+type=proxy
+host=localhost
+
+[worker-1]
+type=worker
+host=localhost
+interface=enp0s8
+lb_method=pf_ring
+lb_procs=2
+```
+
