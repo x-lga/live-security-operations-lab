@@ -277,3 +277,66 @@ sudo systemctl restart wazuh-agent
 ```
 
 ---
+
+## Step 6 - Useful Zeek Queries for Threat Hunting
+
+Zeek logs are structured JSON. These one-liners are your starting points for hunting:
+
+```bash
+# Find all unique source IPs that made HTTP connections
+cat /opt/zeek/logs/current/http.log | \
+  python3 -c "import sys,json; [print(json.loads(l).get('id.orig_h','')) for l in sys.stdin]" | \
+  sort -u
+
+# Find HTTP requests with suspicious user agents
+cat /opt/zeek/logs/current/http.log | \
+  python3 -c "
+import sys, json
+for line in sys.stdin:
+    try:
+        r = json.loads(line)
+        ua = r.get('user_agent', '')
+        if any(x in ua.lower() for x in ['nmap', 'sqlmap', 'nikto', 'masscan', 'python-requests']):
+            print(f\"{r.get('ts')} | {r.get('id.orig_h')} -> {r.get('id.resp_h')} | {r.get('method')} {r.get('host','')}{r.get('uri','')} | UA: {ua}\")
+    except: pass
+"
+
+# Find DNS queries to suspicious TLDs
+cat /opt/zeek/logs/current/dns.log | \
+  python3 -c "
+import sys, json
+for line in sys.stdin:
+    try:
+        r = json.loads(line)
+        q = r.get('query', '')
+        if any(q.endswith(tld) for tld in ['.xyz', '.top', '.club', '.pw', '.cc']):
+            print(f\"{r.get('ts')} | {r.get('id.orig_h')} queried: {q}\")
+    except: pass
+"
+
+# Find large data transfers (potential exfiltration)
+cat /opt/zeek/logs/current/conn.log | \
+  python3 -c "
+import sys, json
+for line in sys.stdin:
+    try:
+        r = json.loads(line)
+        # Alert if more than 1 MB sent outbound
+        if int(r.get('orig_bytes', 0)) > 1048576:
+            print(f\"LARGE UPLOAD: {r.get('id.orig_h')}:{r.get('id.orig_p')} -> {r.get('id.resp_h')}:{r.get('id.resp_p')} | {r.get('orig_bytes')} bytes | proto: {r.get('proto')} | duration: {r.get('duration')}\")
+    except: pass
+"
+
+# Find all unique SSL certificates (for detecting unusual encryption)
+cat /opt/zeek/logs/current/ssl.log | \
+  python3 -c "
+import sys, json
+for line in sys.stdin:
+    try:
+        r = json.loads(line)
+        print(f\"{r.get('server_name', 'N/A')} | Issuer: {r.get('issuer', 'N/A')} | Valid: {r.get('validation_status', 'N/A')}\")
+    except: pass
+" | sort -u
+```
+
+---
