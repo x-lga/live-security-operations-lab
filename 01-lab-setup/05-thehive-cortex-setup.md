@@ -282,3 +282,23 @@ Default credentials: `admin@thehive.local` / `secret`
 **Create an API key for Wazuh integration:**
 1. Go to your analyst user → API keys → Create
 2. Copy the key — you'll add it to Wazuh's `ossec.conf`
+
+
+### Cortex Initial Setup
+
+Open `http://192.168.56.12:9001`
+
+**First-run database setup:**
+Click "Update Database" when prompted.
+
+**Create admin account:**
+Choose a username and password for the Cortex admin.
+
+**Create an organization** (same as TheHive for simplicity): `SOC-Lab`
+
+**Create a Cortex API key:**
+1. Admin → Users → Your user → Create API key
+2. Copy this key — it goes in TheHive's `application.conf` as `CORTEX_API_KEY`
+3. Update TheHive config with this key and restart TheHive
+
+---
