@@ -51,3 +51,52 @@ sudo apt install curl wget gnupg apt-transport-https python3-pip -y
 ```
 
 ---
+
+## Step 2 - Install Cassandra (TheHive Database)
+
+TheHive 5.x uses Cassandra for storage.
+
+```bash
+# Install Cassandra
+wget -qO - https://downloads.apache.org/cassandra/KEYS | \
+  sudo gpg --dearmor -o /usr/share/keyrings/cassandra-archive.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/cassandra-archive.gpg] \
+  https://debian.cassandra.apache.org 40x main" | \
+  sudo tee /etc/apt/sources.list.d/cassandra.sources.list
+
+sudo apt update
+sudo apt install cassandra -y
+
+# Start Cassandra
+sudo systemctl enable cassandra
+sudo systemctl start cassandra
+
+# Wait 30 seconds for Cassandra to initialize, then verify
+sleep 30
+nodetool status
+# Should show "UN" (Up/Normal) for your node
+```
+
+Configure Cassandra for TheHive:
+
+```bash
+sudo nano /etc/cassandra/cassandra.yaml
+```
+
+Change these values:
+```yaml
+cluster_name: 'thehive'
+# Leave everything else as default for the lab
+```
+
+```bash
+# Remove old data and restart with new cluster name
+sudo systemctl stop cassandra
+sudo rm -rf /var/lib/cassandra/data/system/*
+sudo systemctl start cassandra
+sleep 30
+nodetool status
+```
+
+---
