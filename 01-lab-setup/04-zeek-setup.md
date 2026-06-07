@@ -388,3 +388,18 @@ ls /opt/zeek/logs/
 ```
 
 ---
+
+## Zeek + Suricata: How They Work Together
+
+When investigating an incident:
+
+1. **Suricata fires an alert** for signature `ET SCAN Nmap User-Agent Observed` from `10.10.10.1`
+2. **You pivot to Zeek `conn.log`** — filter by `id.orig_h == 10.10.10.1`, get the time range
+3. **Zeek shows you** every connection that IP made before/during/after the Suricata alert
+4. **Zeek `dns.log`** shows what hostnames that IP was resolving
+5. **Zeek `http.log`** shows every URI it was hitting
+6. **Suricata confirms** a specific attack signature; **Zeek confirms** the attacker's entire session history
+
+This combination is more powerful than either alone.
+
+---
