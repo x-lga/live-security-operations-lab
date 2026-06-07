@@ -261,3 +261,24 @@ sudo journalctl -u cortex -f
 ```
 
 ---
+
+## Step 6 - Initial Configuration via Web UI
+
+### TheHive Initial Setup
+
+Open `http://192.168.56.12:9000` in your browser.
+
+Default credentials: `admin@thehive.local` / `secret`
+
+**Change the admin password immediately:**
+1. Click top-right → Profile → Change password
+2. Set a strong password
+
+**Create an organization:**
+1. Admin panel → Organizations → Create
+2. Name: `SOC-Lab`
+3. Create analyst users for your organization
+
+**Create an API key for Wazuh integration:**
+1. Go to your analyst user → API keys → Create
+2. Copy the key — you'll add it to Wazuh's `ossec.conf`
