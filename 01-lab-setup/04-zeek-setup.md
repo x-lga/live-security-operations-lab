@@ -175,3 +175,25 @@ redef Site::local_nets += { 10.10.10.0/24, 192.168.56.0/24 };
 ```
 
 ---
+
+## Step 3 - Initialize and Start Zeek
+
+```bash
+# Initialize Zeekctl (creates necessary directories, checks config)
+sudo /opt/zeek/bin/zeekctl deploy
+
+# This does: install → start → check
+# Expected output:
+# installing ... done
+# starting zeek ... done
+
+# Check status
+sudo /opt/zeek/bin/zeekctl status
+# Should show "running" for your Zeek worker(s)
+
+# Check logs are being written
+ls -la /opt/zeek/logs/current/
+# You should see: conn.log dns.log http.log ssl.log etc.
+```
+
+---
