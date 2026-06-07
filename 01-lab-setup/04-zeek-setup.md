@@ -340,3 +340,20 @@ for line in sys.stdin:
 ```
 
 ---
+
+## Step 7 - Automate Zeekctl with Cron
+
+Zeek needs to be periodically "cron-checked" to rotate logs and detect if it crashed:
+
+```bash
+# Add to crontab
+sudo crontab -e
+```
+
+Add these lines:
+```cron
+# Zeek: check every 5 minutes, rotate logs hourly
+*/5 * * * * /opt/zeek/bin/zeekctl cron
+```
+
+---
