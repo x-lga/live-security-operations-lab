@@ -357,3 +357,34 @@ Add these lines:
 ```
 
 ---
+
+## Step 8 - Zeekctl Quick Reference
+
+```bash
+# Start Zeek
+sudo zeekctl start
+
+# Stop Zeek
+sudo zeekctl stop
+
+# Restart Zeek (picks up config changes)
+sudo zeekctl restart
+
+# Deploy config changes (reinstalls and restarts)
+sudo zeekctl deploy
+
+# Check Zeek status
+sudo zeekctl status
+
+# View Zeek worker logs in real-time
+sudo zeekctl diag
+
+# List all available log files
+ls -la /opt/zeek/logs/current/
+
+# Check historical logs (rotated by date)
+ls /opt/zeek/logs/
+# Rotated logs are in dated directories: 2024-01-15/
+```
+
+---
