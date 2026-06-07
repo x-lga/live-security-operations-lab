@@ -197,3 +197,29 @@ ls -la /opt/zeek/logs/current/
 ```
 
 ---
+
+## Step 4 - Verify Zeek is Capturing Traffic
+
+From **Kali**, run a quick ping and HTTP request:
+
+```bash
+ping -c 4 10.10.10.10
+curl http://10.10.10.10/
+```
+
+On the **Sensor VM**:
+
+```bash
+# Watch connection log in real-time
+tail -f /opt/zeek/logs/current/conn.log | python3 -m json.tool
+
+# Check DNS log
+tail -f /opt/zeek/logs/current/dns.log | python3 -m json.tool
+
+# Check HTTP log
+tail -f /opt/zeek/logs/current/http.log | python3 -m json.tool
+```
+
+You should see the connection from Kali (10.10.10.1) to Metasploitable (10.10.10.10) appear in `conn.log`.
+
+---
