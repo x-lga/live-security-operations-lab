@@ -394,7 +394,7 @@ ls /opt/zeek/logs/
 When investigating an incident:
 
 1. **Suricata fires an alert** for signature `ET SCAN Nmap User-Agent Observed` from `10.10.10.1`
-2. **You pivot to Zeek `conn.log`** — filter by `id.orig_h == 10.10.10.1`, get the time range
+2. **You pivot to Zeek `conn.log`** - filter by `id.orig_h == 10.10.10.1`, get the time range
 3. **Zeek shows you** every connection that IP made before/during/after the Suricata alert
 4. **Zeek `dns.log`** shows what hostnames that IP was resolving
 5. **Zeek `http.log`** shows every URI it was hitting
@@ -403,3 +403,19 @@ When investigating an incident:
 This combination is more powerful than either alone.
 
 ---
+
+## ✅ Zeek Setup Verification Checklist
+
+- [ ] Zeek service running (`zeekctl status`)
+- [ ] Log files being written to `/opt/zeek/logs/current/`
+- [ ] Traffic from Kali scan appears in `conn.log`
+- [ ] DNS queries appear in `dns.log`
+- [ ] HTTP requests appear in `http.log`
+- [ ] Wazuh agent receiving Zeek logs (check dashboard for `zeek-conn` source)
+- [ ] Cron job for `zeekctl cron` configured
+- [ ] `local.zeek` has JSON output and hash-all-files enabled
+
+---
+
+*Next: [`05-thehive-cortex-setup.md`](05-thehive-cortex-setup.md) — case management and automated enrichment.*
+
