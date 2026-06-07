@@ -100,3 +100,46 @@ nodetool status
 ```
 
 ---
+
+## Step 3 - Install Elasticsearch (TheHive Index)
+
+TheHive 5.x uses Elasticsearch for indexing.
+
+```bash
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | \
+  sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] \
+  https://artifacts.elastic.co/packages/7.x/apt stable main" | \
+  sudo tee /etc/apt/sources.list.d/elastic-7.x.list
+
+sudo apt update
+sudo apt install elasticsearch -y
+```
+
+Configure Elasticsearch:
+```bash
+sudo nano /etc/elasticsearch/elasticsearch.yml
+```
+
+```yaml
+http.host: 127.0.0.1
+transport.host: 127.0.0.1
+cluster.name: hive
+thread_pool.search.queue_size: 100000
+path.logs: "/var/log/elasticsearch"
+path.data: "/var/lib/elasticsearch"
+xpack.security.enabled: false
+script.allowed_types: "inline,stored"
+```
+
+```bash
+sudo systemctl enable elasticsearch
+sudo systemctl start elasticsearch
+
+# Verify Elasticsearch is responding
+curl -s http://localhost:9200/
+# Should return JSON with cluster info
+```
+
+---
