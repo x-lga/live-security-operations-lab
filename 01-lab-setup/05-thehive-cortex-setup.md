@@ -19,3 +19,7 @@ Wazuh Manager ──► (integration webhook) ──► TheHive
 ```
 
 - **TheHive**: The case management platform. Think of it as a ticket system purpose-built for security incidents.
+- **Cortex**: The automation engine. Analyzers run against observables (IOCs) and return enrichment data automatically.
+- Both run on the same Ubuntu VM: **192.168.56.12**
+
+---
