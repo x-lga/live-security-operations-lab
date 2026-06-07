@@ -226,3 +226,38 @@ sudo journalctl -u thehive -f
 ```
 
 ---
+
+## Step 5 - Install Cortex
+
+```bash
+# Same repository as TheHive
+sudo apt install cortex -y
+```
+
+Configure Cortex:
+```bash
+sudo nano /etc/cortex/application.conf
+```
+
+```hocon
+# Application key
+play.http.secret.key: "ANOTHER_RANDOM_64_CHAR_SECRET_KEY"
+
+# Database (Elasticsearch)
+search {
+  index: cortex
+  uri: "http://localhost:9200"
+}
+
+# Cache (for job results)
+cache.job: 10 minutes
+```
+
+Start Cortex:
+```bash
+sudo systemctl enable cortex
+sudo systemctl start cortex
+sudo journalctl -u cortex -f
+```
+
+---
