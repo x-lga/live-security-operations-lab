@@ -143,3 +143,86 @@ curl -s http://localhost:9200/
 ```
 
 ---
+
+## Step 4 - Install TheHive
+
+```bash
+wget -O- https://raw.githubusercontent.com/StrangeBee/TheHive/master/PGP-PUBLIC-KEY | \
+  sudo gpg --dearmor -o /usr/share/keyrings/thehive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/thehive-keyring.gpg] \
+  https://deb.strangebee.com thehive-5.2 main" | \
+  sudo tee /etc/apt/sources.list.d/strangebee.list
+
+sudo apt update
+sudo apt install thehive -y
+```
+
+Configure TheHive:
+
+```bash
+sudo nano /etc/thehive/application.conf
+```
+
+Key configuration:
+```hocon
+# Database
+db.janusgraph {
+  storage {
+    backend: cql
+    hostname: ["127.0.0.1"]
+    cql.cluster-name: thehive
+    cql.keyspace: thehive
+  }
+  index.search {
+    backend: elasticsearch
+    hostname: ["127.0.0.1"]
+    index-name: thehive
+  }
+}
+
+# File storage (local)
+storage {
+  provider: localfs
+  localfs.location: /opt/thp/thehive/files
+}
+
+# Application key (generate a new random one)
+play.http.secret.key: "YOUR_RANDOM_64_CHAR_SECRET_KEY"
+
+# TheHive URL (for callbacks)
+application.baseUrl: "http://192.168.56.12:9000"
+
+# Enable Cortex integration
+cortex {
+  servers: [
+    {
+      name: "cortex-local"
+      url: "http://192.168.56.12:9001"
+      auth {
+        type: "bearer"
+        key: "CORTEX_API_KEY"   # Fill in after Cortex is set up
+      }
+      wsConfig.ssl.loose.acceptAnyCertificate: true
+    }
+  ]
+}
+```
+
+Create the file storage directory:
+```bash
+sudo mkdir -p /opt/thp/thehive/files
+sudo chown -R thehive:thehive /opt/thp/thehive
+```
+
+Start TheHive:
+```bash
+sudo systemctl enable thehive
+sudo systemctl start thehive
+
+# Check logs
+sudo journalctl -u thehive -f
+# Wait for "Application started" message — can take 2-3 minutes
+```
+
+---
