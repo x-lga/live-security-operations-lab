@@ -141,3 +141,37 @@ LogDir = /opt/zeek/logs
 # Enable JSON log format (for Wazuh integration)
 LogFormat = json
 ```
+
+
+### 2.4 - Enable JSON Output (Critical for Wazuh)
+
+Create a local site policy:
+
+```bash
+sudo nano /opt/zeek/share/zeek/site/local.zeek
+```
+
+Add at the end:
+
+```zeek
+# Use JSON output format for all logs
+@load policy/tuning/json-logs
+
+# Load useful analysis scripts
+@load protocols/ftp/detect-bruteforcing
+@load protocols/dns/detect-external-names
+@load protocols/http/detect-sqli
+@load protocols/http/detect-webapps
+@load protocols/ssl/validate-certs
+@load protocols/ssl/log-hostcerts-only
+@load frameworks/files/hash-all-files
+@load frameworks/files/detect-MHR
+@load misc/scan
+
+# Custom log settings
+redef LogAscii::use_json = T;
+redef LogAscii::json_timestamps = JSON::TS_ISO8601;
+redef Site::local_nets += { 10.10.10.0/24, 192.168.56.0/24 };
+```
+
+---
