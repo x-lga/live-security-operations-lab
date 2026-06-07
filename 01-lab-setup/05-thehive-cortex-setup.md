@@ -34,3 +34,20 @@ Wazuh Manager ──► (integration webhook) ──► TheHive
 - AbuseIPDB API key (free tier)
 
 ---
+
+## Step 1 - Prepare the VM
+
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo hostnamectl set-hostname thehive-cortex
+
+# Install Java 11 (required by TheHive and Cortex)
+sudo apt install openjdk-11-jre-headless -y
+java -version
+# openjdk version "11.x.x"
+
+# Install other dependencies
+sudo apt install curl wget gnupg apt-transport-https python3-pip -y
+```
+
+---
