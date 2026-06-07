@@ -23,3 +23,14 @@ Wazuh Manager ──► (integration webhook) ──► TheHive
 - Both run on the same Ubuntu VM: **192.168.56.12**
 
 ---
+
+## Prerequisites
+
+- Ubuntu Server 22.04 LTS VM
+- IP: 192.168.56.12
+- 4 GB RAM, 2 CPU cores, 30 GB disk
+- Java 11 required for TheHive/Cortex
+- VirusTotal API key (free tier, 4 lookups/min)
+- AbuseIPDB API key (free tier)
+
+---
