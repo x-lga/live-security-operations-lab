@@ -108,3 +108,15 @@ lb_method=pf_ring
 lb_procs=2
 ```
 
+### 2.2 - Configure Network Ranges
+
+```bash
+sudo nano /opt/zeek/etc/networks.cfg
+```
+
+```
+# Define your local networks
+# Zeek uses this to determine "local" vs "remote" traffic
+10.10.10.0/24     Attack Lab Network
+192.168.56.0/24   SOC Management Network
+```
